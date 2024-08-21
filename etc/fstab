@@ -1,0 +1,20 @@
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/nvme0n1p2 during curtin installation
+/dev/disk/by-uuid/c8d374bd-9a40-48d9-8d81-f82c141231ee / ext4 defaults 0 1
+# /boot/efi was on /dev/nvme0n1p1 during curtin installation
+/dev/disk/by-uuid/59C8-F1CD /boot/efi vfat defaults 0 1
+/dev/disk/by-uuid/9482d7cd-d4a6-4fe7-89c1-c8a98e52470c none swap sw 0 0
+# /home was on /dev/sda1 during curtin installation
+/dev/disk/by-uuid/1f08569a-72f7-40bf-91c8-dc1c697af221 /home ext4 defaults 0 1
+#gestione nas
+//192.168.1.10/01_Commesse/ /mnt/01_Commesse cifs credentials=/home/fabio/.smbcredentials,uid=1000,gid=1000,iocharset=utf8,vers=2.0 0 0
+//192.168.1.10/02_Amministrazione/ /mnt/02_Amministrazione cifs credentials=/home/fabio/.smbcredentials,uid=1000,gid=1000,iocharset=utf8,vers=2.0 0 0
+//192.168.1.10/03_Organizzazione/ /mnt/03_Organizzazione cifs credentials=/home/fabio/.smbcredentials,uid=1000,gid=1000,iocharset=utf8,vers=2.0 0 0
+//192.168.1.10/20_MacchineVirtuali/ /mnt/20_MacchineVirtuali cifs credentials=/home/fabio/.smbcredentials,uid=1000,gid=1000,iocharset=utf8,vers=2.0 0 0
+//192.168.1.10/home/ /mnt/HomeNAS cifs credentials=/home/fabio/.smbcredentials,uid=1000,gid=1000,iocharset=utf8,vers=2.0 0 0
